@@ -825,7 +825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518536f232b3ea344bd716c9d76f369a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1537608992}
+  scoreText: {fileID: 0}
 --- !u!1 &1622031445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,7 +1350,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2021973704}
-  - component: {fileID: 2021973702}
   - component: {fileID: 2021973701}
   - component: {fileID: 2021973700}
   - component: {fileID: 2021973699}
@@ -1448,18 +1447,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.15, y: 0.28}
   m_EdgeRadius: 0
---- !u!114 &2021973702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2021973698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3335953d5e774a4479145c03ca7ba379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &2021973703
 SpriteRenderer:
   m_ObjectHideFlags: 0
