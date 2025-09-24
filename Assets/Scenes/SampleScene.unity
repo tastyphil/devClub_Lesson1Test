@@ -557,7 +557,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -857,10 +857,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bananaPrefab: {fileID: 5954369722057142430, guid: 8576b11931880ea428aff158b783120d, type: 3}
   map: {fileID: 1623590272}
-  spawnableArea: {fileID: 1623590275}
-  mapLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!4 &1622031447
 Transform:
   m_ObjectHideFlags: 0
