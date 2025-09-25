@@ -14,9 +14,9 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream
+
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-=======
+
         // moves our 2d vector depending on how much we hold WASD or the arrow key
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
@@ -28,17 +28,12 @@ public class Movement : MonoBehaviour
         }
 
         // FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
->>>>>>> Stashed changes
-
     }
     
     void FixedUpdate()
     {
-<<<<<<< Updated upstream
-=======
         // manipulates the direction of our mouse with regards to speed
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
->>>>>>> Stashed changes
         rb.linearVelocity = movementDirection * speed;
     }
 }
