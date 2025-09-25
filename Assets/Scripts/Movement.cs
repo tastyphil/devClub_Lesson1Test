@@ -14,13 +14,31 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+=======
+        // moves our 2d vector depending on how much we hold WASD or the arrow key
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0,0,90));
+        }
+
+        // FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
+>>>>>>> Stashed changes
 
     }
-
-    // FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
+    
     void FixedUpdate()
     {
+<<<<<<< Updated upstream
+=======
+        // manipulates the direction of our mouse with regards to speed
+        movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+>>>>>>> Stashed changes
         rb.linearVelocity = movementDirection * speed;
     }
 }
