@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class BananaBehaviour : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Component for score UI
     public ScoreManager scoreManager;
+
+    // Component to spawn banana
     public BananaSpawner bananaSpawner;
 
     void Start()
     {
+        // Initialize our fields once the program runs
+        // This is essential, as Banana will turn into a prefab
+        // Of which fields like these have to be initiailized through code
         scoreManager = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreManager>();
         bananaSpawner = GameObject.FindGameObjectWithTag("BananaManager").GetComponent<BananaSpawner>();
     }
@@ -18,12 +23,17 @@ public class BananaBehaviour : MonoBehaviour
         
     }
 
+    // Called when another collider triggers Banana's collider
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // if the collider is from the Player
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Player touched the banana!");
             AudioManager.Instance.playSfx("swallow");
+
+            // destroy this instance of a banana
+            // the player already ate it
             Destroy(gameObject);
             scoreManager.IncreaseScore();
             bananaSpawner.spawnBanana();

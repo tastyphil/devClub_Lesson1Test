@@ -3,10 +3,15 @@ using UnityEngine;
 
 public class BananaSpawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+   // Fields for Banana PreFab, and map
     public GameObject bananaPrefab, map;
+
+    // Used to determine the area where we can spawn bananas
+    // using map's collider box
     public Collider2D spawnableArea;
     [SerializeField] private LayerMask mapLayer;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spawnableArea = map.GetComponent<Collider2D>();
@@ -20,21 +25,31 @@ public class BananaSpawner : MonoBehaviour
         
     }
 
+    // Spawns an instance of a banana that does not collide with the Map
     [ContextMenu("Spawn Banana")]
     public void spawnBanana()
     {   
+        // create a random 2d vector along the spawnable area
         Vector2 spawnPosition = getRandomPositionInArea(spawnableArea);
+
+        // Checks if spawnPosition collides with some other collider
+        // First, it creates a small circle at spawnPosition
+        // If said circle collides with another collider, isColliding is true
         bool collidesOn = Physics2D.OverlapCircle(spawnPosition, 0.25f);
 
+        // keep generating a new position until isColliding is false
         while (collidesOn)
         {
             spawnPosition = getRandomPositionInArea(spawnableArea);
             collidesOn = Physics2D.OverlapCircle(spawnPosition, 0.25f);
         }
+
+        // Clones a banana
         Instantiate(bananaPrefab, spawnPosition, Quaternion.identity);
         
     }
 
+    // Returns a random Vector around the passed Collider2D area
     private Vector2 getRandomPositionInArea(Collider2D area)
     {
         return new Vector2(
